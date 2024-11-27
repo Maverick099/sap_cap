@@ -182,9 +182,12 @@ class SAPService {
     }
   }
 
-  /**User token obtained from client for passing to destination service. */
-  get USER_TOKEN() {
-    return this.#user_token;
+  /**User token obtained from client for passing to destination service.
+  * @param {CDS.Request} req the orginal request object.
+  */
+  get USER_TOKEN(req) {
+    return this.#user_token || req._.req?.authInfo?.getTokenInfo()?.getTokenValue() ?? null;;
+    
   }
 
   //WIP: Add more logic to run this using cloud sdk for on-premise system as well.
