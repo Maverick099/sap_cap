@@ -1,0 +1,19 @@
+# Configuration for Mocha testing framework
+
+# Mocha options
+ui: "bdd" # Use the BDD testing interface
+timeout: 5000 # Set a timeout of 5 seconds for each test
+colors: true # Enable colored output in the terminal
+require: ["./test/hooks"] # Require the hooks file before running tests
+exit: true # Exit the process after tests are complete
+allow-uncaught: false
+async-only: false
+check-leaks: true
+watch-files: ["srv/**/*.js", "test/**/*.js"] # Watch these files for changes and rerun tests
+recursive: true  # tests are nested in subdirectories, need to use this option to ensure Mocha finds all of them.
+# Glob pattern for test files
+spec:
+  - "test/**/*_test.spec.js" # Look for test files in the 'test' directory with the pattern '*_test.spec.js'
+
+# Enable parallel test execution (if supported by your Mocha version)
+parallel: true
